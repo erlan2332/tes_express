@@ -1,0 +1,194 @@
+
+.logistics-clients-page {
+  padding: 40px 60px;
+  box-sizing: border-box;
+  width: 100%;
+  font-family: sans-serif;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 8px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+
+.logistics-table {
+  width: 100%;
+  border-collapse: separate;       
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;   
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+
+.logistics-table thead th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  user-select: none;
+  cursor: pointer; 
+  font-size: 14px;
+}
+
+
+.logistics-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #333;
+}
+
+
+.logistics-table tbody tr:hover {
+  background-color: #fafafa;
+}
+
+
+.badge {
+  display: inline-block;
+  padding: 8px 10px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap; 
+}
+
+
+.badge.red {
+  background: #ffebee;
+  color: #c62828;
+}
+.badge.green {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+.badge.blue {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+
+.car-info {
+  margin-bottom: 6px; 
+}
+.car-info .model {
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.car-info .route {
+  font-size: 13px;
+  color: #666;
+}
+
+
+.red-btn {
+  background: rgba(239, 68, 68, 1);
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.red-btn:hover {
+  background: #c62828;
+}
+
+.blue-btn {
+  background: rgba(0, 122, 255, 1);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.blue-btn:hover {
+  background: rgb(3, 85, 173);
+}
+
+
+.outline-btn {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.outline-btn:hover {
+  background: #f5f5f5;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+
+.modal-content {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+
+.modal-content.large {
+  max-width: 700px;
+}
+
+
+.modal-form {
+  display: grid;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 14px;
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}

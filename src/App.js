@@ -1,24 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { UserContext } from "./pages/UserContext";
+import Sidebar from "./components/Sidebar";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import DashboardPage from "./pages/DashboardPage";
+import CarsPage from "./pages/CarsPage";
+import LogisticsClientsPage from "./pages/LogisticsClientsPage";
+import NewsPage from "./pages/NewsPage";
+import MarketPage from "./pages/MarketPage";
+import ReviewsPage from "./pages/ReviewsPage";
+import ContestsPage from "./pages/ContestsPage";
+import AdminUsersPage from "./pages/AdminUsersPage";
+
+import "./App.css";
 
 function App() {
+  const [user, setUser] = useState(() => {
+    const stored = localStorage.getItem("user");
+    return stored ? JSON.parse(stored) : null;
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserContext.Provider value={{ user, setUser }}>
+      <Router>
+        <div className="app-container">
+          <Sidebar />
+          <div className="main-content">
+            <Routes>
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/" element={<DashboardPage />} />
+              <Route path="/dashboard" element={<DashboardPage />} />
+              <Route path="/cars" element={<CarsPage />} />
+              <Route path="/logistics" element={<LogisticsClientsPage />} />
+              <Route path="/news" element={<NewsPage />} />
+              <Route path="/market" element={<MarketPage />} />
+              <Route path="/reviews" element={<ReviewsPage />} />
+              <Route path="/contests" element={<ContestsPage />} />
+              <Route path="/admin/users" element={<AdminUsersPage />} />
+            </Routes>
+          </div>
+        </div>
+      </Router>
+    </UserContext.Provider>
   );
 }
 
