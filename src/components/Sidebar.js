@@ -108,6 +108,7 @@ function Sidebar() {
               {user.name || user.login}
               <span className="arrow-down">▼</span>
             </button>
+
             {isMenuOpen && (
               <div className="user-dropdown">
                 <button className="user-dropdown-item" onClick={handleLogout}>
