@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../pages/UserContext";
-import logo from '../img/Frame 20.png';
+import logo from "../img/Frame 20.png";
 import "./Sidebar.css";
 
 function Sidebar() {
@@ -20,18 +20,14 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebar-logo">
-        <img
-          className="sidebar-logo-img"
-          src={logo}
-          alt="Logo"
-        />
+        <img className="sidebar-logo-img" src={logo} alt="Logo" />
       </div>
+
       <nav className="sidebar-menu">
+        {/* --- основные пункты --- */}
         <NavLink
           to="/dashboard"
-          className={({ isActive }) =>
-            "menu-item" + (isActive ? " active" : "")
-          }
+          className={({ isActive }) => "menu-item" + (isActive ? " active" : "")}
         >
           <span className="icon icon-dashboard" />
           <span>Dashboard</span>
@@ -39,9 +35,7 @@ function Sidebar() {
 
         <NavLink
           to="/market"
-          className={({ isActive }) =>
-            "menu-item" + (isActive ? " active" : "")
-          }
+          className={({ isActive }) => "menu-item" + (isActive ? " active" : "")}
         >
           <span className="icon icon-market" />
           <span>Маркет</span>
@@ -49,9 +43,7 @@ function Sidebar() {
 
         <NavLink
           to="/logistics"
-          className={({ isActive }) =>
-            "menu-item" + (isActive ? " active" : "")
-          }
+          className={({ isActive }) => "menu-item" + (isActive ? " active" : "")}
         >
           <span className="icon icon-logistics" />
           <span>Логистика + Клиенты</span>
@@ -59,9 +51,7 @@ function Sidebar() {
 
         <NavLink
           to="/cars"
-          className={({ isActive }) =>
-            "menu-item" + (isActive ? " active" : "")
-          }
+          className={({ isActive }) => "menu-item" + (isActive ? " active" : "")}
         >
           <span className="icon icon-cars" />
           <span>Машины</span>
@@ -69,9 +59,7 @@ function Sidebar() {
 
         <NavLink
           to="/news"
-          className={({ isActive }) =>
-            "menu-item" + (isActive ? " active" : "")
-          }
+          className={({ isActive }) => "menu-item" + (isActive ? " active" : "")}
         >
           <span className="icon icon-news" />
           <span>Новости</span>
@@ -79,9 +67,7 @@ function Sidebar() {
 
         <NavLink
           to="/reviews"
-          className={({ isActive }) =>
-            "menu-item" + (isActive ? " active" : "")
-          }
+          className={({ isActive }) => "menu-item" + (isActive ? " active" : "")}
         >
           <span className="icon icon-reviews" />
           <span>Отзывы</span>
@@ -89,22 +75,45 @@ function Sidebar() {
 
         <NavLink
           to="/contests"
-          className={({ isActive }) =>
-            "menu-item" + (isActive ? " active" : "")
-          }
+          className={({ isActive }) => "menu-item" + (isActive ? " active" : "")}
         >
           <span className="icon icon-contests" />
           <span>Конкурсы</span>
         </NavLink>
+
+        {/* --- админ‑раздел --- */}
+        {user?.role?.name === "ADMIN" && (
+          <>
+            <div className="menu-divider" /> {/* тонкая линия, по желанию */}
+
+            <NavLink
+              to="/admin/users"
+              className={({ isActive }) =>
+                "menu-item" + (isActive ? " active" : "")
+              }
+            >
+              <span className="icon icon-admin-users" />
+              <span>Пользователи</span>
+            </NavLink>
+
+            <NavLink
+              to="/admin/add"
+              className={({ isActive }) =>
+                "menu-item" + (isActive ? " active" : "")
+              }
+            >
+              <span className="icon icon-add-admin" />
+              <span>Добавить админа</span>
+            </NavLink>
+          </>
+        )}
       </nav>
 
+      {/* --- профиль / выход --- */}
       <div className="sidebar-user">
         {user ? (
           <div className="user-dropdown-wrapper">
-            <button
-              className="user-btn"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
+            <button className="user-btn" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {user.name || user.login}
               <span className="arrow-down">▼</span>
             </button>

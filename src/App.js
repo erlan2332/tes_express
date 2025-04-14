@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { UserContext } from "./pages/UserContext";
 import Sidebar from "./components/Sidebar";
+
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import DashboardPage from "./pages/DashboardPage";
@@ -12,6 +13,7 @@ import MarketPage from "./pages/MarketPage";
 import ReviewsPage from "./pages/ReviewsPage";
 import ContestsPage from "./pages/ContestsPage";
 import AdminUsersPage from "./pages/AdminUsersPage";
+import AddAdminPage from "./pages/AddAdminPage";   //  ← НОВЫЙ импорт
 
 import "./App.css";
 
@@ -39,6 +41,8 @@ function App() {
               <Route path="/reviews" element={<ReviewsPage />} />
               <Route path="/contests" element={<ContestsPage />} />
               <Route path="/admin/users" element={<AdminUsersPage />} />
+              {/* ---------- новый маршрут ---------- */}
+              <Route path="/admin/add" element={<AddAdminPage />} />
             </Routes>
           </div>
         </div>

@@ -1,0 +1,24 @@
+.add-admin-page {
+    padding: 24px;
+    max-width: 480px;
+  }
+  
+  .add-admin-page form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .add-admin-page label {
+    font-weight: 600;
+  }
+  
+  .add-admin-page input {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .add-admin-page .error   { color: #e53935; }
+  .add-admin-page .success { color: #43a047; }
+  
